@@ -8,7 +8,17 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     root_path
   end
-
+  
+  def create
+    @user=User.new
+    if @user.save
+      flash[:notice]=" You have signed up successfully."
+      redirect_to user_path
+    else
+      render"new"
+    end
+  end
+  
   protected
 
   def configure_permitted_parameters

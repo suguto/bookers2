@@ -18,11 +18,14 @@
       </thead>
       <tbody>
        <% @books.each do |b| %>
-       <tr><%= user.get_profile_image %></tr>
-       <tr><%= b.title %></tr>
-       <tr><%= b.body %></tr>
+       <tr>
+         <td><%= book.user.get_profile_image(100,100) %></td>
+         <td><a class=<%= b.title %></td>
+         <td><%= b.body %></td>
+       </tr>
        <% end %>
       </tbody>
+     </table>
 
      </div>
 

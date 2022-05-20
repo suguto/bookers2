@@ -3,8 +3,23 @@
     <div class="col-md-3">
 
        <%= render'/books/info', user: @user, book: @book %>
-
     </div>
+
+
+    <h2>Book detail</h2>
+    <% @book.each do |b| %>
+    <table>
+     <tr>
+      <td><%= b.image_tag :get_profile_image %>
+          <%= link_to 'b.user. :name',  users_path %>
+      </td>
+      <td><%= b.title %></td>
+      <td><%= b.body %></td>
+      <td><%= b.submit "Edit" %></td>
+      <td><%= b.submit"Destroy" %></td>
+     </tr>
+     <% end %>
+    </table>
   </div>
  </div>
 
