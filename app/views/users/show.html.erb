@@ -5,6 +5,7 @@
        <%= render'/books/info', user: @user, book: @book %>
     </div>
 
+   <div class="col-md-8 offset-md-1">
     <h2>Books</h2>
     <table>
      <thead>
@@ -17,12 +18,13 @@
      <tbody>
       <% @books.each do |b| %>
       <tr>
-       <td><%= b.image.tag user.get_profile_image(100,100) %></td>
-       <td><%= b.link_to 'user:title', user_path(@user) %></td>
+       <td><%= image_tag b.user.get_profile_image(100,100) %></td>
+       <td><%= link_to b.title , user_path(@user) %></td>
        <td><%= b.body %></td>
       </tr>
       <% end %>
      </tbody>
     </table>
+   </div>
   </div>
  </div>
