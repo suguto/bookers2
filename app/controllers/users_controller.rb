@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :corrent_user,only:[:edit]
+  before_action :correct_user,only:[:edit]
 
 
   def edit
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You have updated user successfully."
       redirect_to user_path(@user)
     else
-      render"show"
+      render"edit"
     end
 
   end
@@ -37,8 +37,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name,:introduction,:profile_image)
   end
 
-  def corrent_user
-    redirect_to user_path(current_user) unless current_user
+  def correct_user
+    @user=User.find(params[:id])
+    redirect_to user_path(current_user) unless @user == current_user
   end
 
 end

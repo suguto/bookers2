@@ -1,4 +1,4 @@
- <%= notice %>
+
 
  <div class="container px-5 px-sm-0">
   <div class="row">
@@ -7,8 +7,9 @@
        <%= render'/books/info', user: @user, book: @book %>
     </div>
 
+   <div class="col-md-8 offset-md-1">
     <h2>Users</h2>
-    <table>
+    <table class="table table-hover table-inverse">
         <thead>
             <tr>
                 <th>image</th>
@@ -18,7 +19,8 @@
         <tbody>
             <% @users.each do |u| %>
             <tr>
-                <td><%= image_tag u.get_profile_image(100,100) %></td>
+                <td>
+                  <%=image_tag u.get_profile_image(100,100) %></td>
                 <td><%= u.name %></td>
                 <td><%= link_to'Show', user_path(u) %></td>
             </tr>
@@ -26,7 +28,7 @@
         </tbody>
     </table>
 
-
+   </div>
   </div>
  </div>
 
